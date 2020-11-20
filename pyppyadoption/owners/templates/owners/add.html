@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>Sign up adopter</h1>
+  <p>Add a new Owner to our database!</p>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }}{{ form.name }}
+    {{ form.street.label }}{{ form.street }}
+    {{ form.city.label }}{{ form.city }}
+    {{ form.state.label }}{{ form.state }}
+    {{ form.zipcode.label }}{{ form.zipcode }}
+    {{ form.pypid.label }}{{ form.pypid}}
+    {{ form.submit() }}
+  </form>
+  {% for pyp in pyppies %}
+    <h5>{{pyp.id}}: {{pyp.name}}</h5>
+  {% endfor %}
+</div>
+{% endblock %}
